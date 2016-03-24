@@ -1,0 +1,40 @@
+Country,Indicateur Code,Indicateur Libelle,Indicateurs SNIS correspondant,Gold Stand
+Bénin,BEN1,Accouchement eutocique assiste,Accouchements eutociques,ok
+Bénin,BEN2,Enfants completement vaccines,Enfants complètement vaccinés du PEV,ok
+Bénin,BEN3,"CPN 4 Standard (y compris VAT, SP et supplémentation en micronutriments)",CPN4,ok
+Bénin,BEN4,Nouvelle Consultation Curative,Total des cas toutes causes confondues,ok
+Bénin,BEN5,Reference et patient arrive a l'hopital,,no
+Bénin,BEN6,Accouchement: reference d'urgence pour accouchement,Parturientes évacuées (femmes en travail),ok
+Bénin,BEN7,Depistage des cas TBC positifs,Nouveaux cas tuberculose pulmonaire (TPB+),ok
+Bénin,BEN8,Nombre de cas TBC traites et gueris,TB nouveaux cas et rechutes TPB+: guéri,ok
+Bénin,BEN9,Suivi de la croissance: enfants de 11 a 59 mois consultes,,no
+Bénin,BEN10,Contre référence de l'hopital arrivée au CS,,no
+Bénin,BEN11,Intervention Chirurgicale en service de Gynécologie Obstétrique et Chirurgie,,no
+Bénin,BEN12,Nombre de nouvelles acceptances pour les méthodes contraceptives de longue durée(DIU et implant),"Nouvelles acceptantes de la méthode DIU, Nouvelles acceptantes méthode d'implant",ok
+Bénin,BEN13,Nombre de nouvelles acceptances pour les méthodes contraceptives de courte durée,"Nouvelles acceptantes de la méthode CI,Nouvelles acceptantes de la méthode CO",ok
+Bénin,BEN14,Nombre d'enfants ayant reçu le Penta 3,Vaccinés en penta 3 (DTC3-HEPB3+HIB3),ok
+Bénin,BEN15,Nouvelles Consultations curatives Indigents (prime additionnelle),,no
+Bénin,BEN16,"CPN 1 standard (y compris VAT, MILD et supplémentation en micronutriments)",CPN1,ok
+Bénin,BEN17,"CPN 1 standard (y compris VAT, MILD et supplémentation en micronutriments) pour les Indigentes (prime additionelle)",,no
+Bénin,BEN18,Consultation postnatale 1 (du 7ème au 10ème jour),Mères reçues en CPoN nouvelles consultantes,ok
+Bénin,BEN19,consulation postnatale 3 (42ème au 45ème jour suivant l'accouchement),,no
+Bénin,BEN20,Vaccination au BCG,Vaccinés BCG,ok
+Bénin,BEN21,Clients sous traitement ARV suivi pendant les 6 premiers mois,,no
+Bénin,BEN22,Enfants éligibles au traitement ARV et qui ont été initié au traitement ARV au cours du mois,,no
+Bénin,BEN23,Femmes enceintes dépistées séropositive et mise sous traitement ARV (tri prophylaxie / trithérapie),,no
+Bénin,BEN24,IST diagnostiqués et traités,,no
+Bénin,BEN25,Césarienne,Accouchements dystociques avec césarienne,ok
+Bénin,BEN26,Accouchement dystocique effectué chez une parturiente référée des Centres de Santé,,no
+Bénin,BEN27,Diagnostic et traitement des cas de paludisme simple chez les enfants,Paludisme simple testé positif (TDR+GE),ok
+Bénin,BEN28,Diagnostic et traitement des cas de paludisme simple chez les femmes enceintes,Paludisme simple testé positif (TDR+GE),ok
+Bénin,BEN29,Diagnostic et traitement des cas de paludisme grave chez les femmes enceintes,Paludisme grave testés positifs,ok
+Bénin,BEN30,Diagnostic et traitement des cas de paludisme grave chez les enfants,Paludisme grave testés positifs,ok
+Bénin,BEN31,Planification Familiale,,no
+Bénin,BEN32,"CPN 4 Standard (y compris VAT, SP et supplémentation en micronutriments) pour les Indigentes (prime additionnelle)",,no
+Bénin,BEN33,Accouchement eutocique assiste femme indigente (prime additionnelle),,no
+Bénin,BEN34,Consultation Postnatale,,no
+Bénin,BEN35,Femmes enceintes VAT completement vaccinees (VAT 2-5),Femmes vaccinées en VAT2-5,ok
+Bénin,BEN36,Deuxieme prise de Sulfadoxine femme enceinte,TPI SP 2 ou plus,ok
+Bénin,BEN37,Distribution des MII (femme enceinte),Femmes enceintes reçues en CPN ayant acquis MILLD,ok
+Bénin,BEN38,Sejour hospitalier (chirurgie),,no
+Bénin,BEN39,Sejour hospitalier (medecine),,no

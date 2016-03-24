@@ -1,0 +1,46 @@
+indic_code,indic_lib,icd10,service,add_def,population,age_min,age_max,sex,enceinte,autre,depistage_fait,depistage_resultat,accouchement_assist,accouchement_ptme_type,chirurgie_urgence,traitement_statut
+BEN1,Accouchement eutocique assiste,O80,Accouchement,No,No,NA,NA,NA,NA,NA,NA,NA,Assiste,NA,NA,NA
+BEN2,Enfants completement vaccines,Z23,Vaccination,Yes,Yes,0,Y5,NA,NA,NA,NA,NA,NA,NA,NA,NA
+BEN3,"CPN 4 Standard (y compris VAT, SP et supplémentation en micronutriments)",Z34.93,Consultation,Yes,No,NA,NA,F,yes,NA,NA,NA,NA,NA,NA,NA
+BEN4,Nouvelle Consultation Curative,ZX1.2,Consultation,No,No,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+BEN5,Reference et patient arrive a l'hopital,ZX2.2,Reference,Yes,No,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+BEN6,Accouchement: reference d'urgence pour accouchement,ZX2.2,Accouchement,Yes,No,NA,NA,F,yes,NA,NA,NA,Evacuation,NA,NA,NA
+BEN7,Depistage des cas TBC positifs,A15 + A17 + A18 + A19,Depistage,Yes,No,NA,NA,NA,NA,NA,NA,TB+,NA,NA,NA,NA
+BEN8,Nombre de cas TBC traites et gueris,A15 + A17 + A18 + A19,Traitement,Yes,Yes,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,Guerison
+BEN9,Suivi de la croissance: enfants de 11 a 59 mois consultes,Z00.2,Consultation,Yes,Yes,M11,Y5,NA,NA,NA,suivi_croissance,NA,NA,NA,NA,NA
+BEN10,Contre référence de l'hopital arrivée au CS,ZX2.1,Reference,No,No,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+BEN11,Intervention Chirurgicale en service de Gynécologie Obstétrique et Chirurgie,ZX1.1,Chirurgie,Yes,No,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+BEN12,Nombre de nouvelles acceptances pour les méthodes contraceptives de longue durée(DIU et implant),Z30.013  + Z30.014,Consultation,No,No,NA,NA,F,NA,NA,NA,NA,NA,NA,NA,NA
+BEN13,Nombre de nouvelles acceptances pour les méthodes contraceptives de courte durée,Z30.011,Consultation,No,No,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+BEN14,Nombre d'enfants ayant reçu le Penta 3,Z23,Vaccination,Yes,Yes,0,Y5,NA,NA,NA,NA,NA,NA,NA,NA,NA
+BEN15,Nouvelles Consultations curatives Indigents (prime additionnelle),ZX1.2,Consultation,No,Yes,NA,NA,NA,NA,Indigents,NA,NA,NA,NA,NA,NA
+BEN16,"CPN 1 standard (y compris VAT, MILD et supplémentation en micronutriments)",Z34.91,Consultation,Yes,No,NA,NA,F,yes,NA,NA,NA,NA,NA,NA,NA
+BEN17,"CPN 1 standard (y compris VAT, MILD et supplémentation en micronutriments) pour les Indigentes (prime additionelle)",Z34.91,Consultation,Yes,Yes,NA,NA,F,yes,NA,NA,NA,NA,NA,NA,NA
+BEN18,Consultation postnatale 1 (du 7ème au 10ème jour),Z00.11,Consultation,Yes,Yes,J7,J10,NA,NA,NA,NA,NA,NA,NA,NA,NA
+BEN19,consulation postnatale 3 (42ème au 45ème jour suivant l'accouchement),Z00.11,Consultation,Yes,Yes,J42,J45,NA,NA,NA,NA,NA,NA,NA,NA,NA
+BEN20,Vaccination au BCG,Z23,Vaccination,Yes,Yes,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+BEN21,Clients sous traitement ARV suivi pendant les 6 premiers mois,B20,Traitement,Yes,Yes,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,Suivi
+BEN22,Enfants éligibles au traitement ARV et qui ont été initié au traitement ARV au cours du mois,B20,Traitement,Yes,Yes,0,Y15,NA,NA,NA,NA,NA,NA,NA,NA,Nouveau
+BEN23,Femmes enceintes dépistées séropositive et mise sous traitement ARV (tri prophylaxie / trithérapie),B20,Depistage,Yes,Yes,NA,NA,F,yes,NA,NA,VIH+,NA,NA,NA,NA
+BEN23,Femmes enceintes dépistées séropositive et mise sous traitement ARV (tri prophylaxie / trithérapie),B20,Traitement,Yes,Yes,NA,NA,F,yes,NA,NA,VIH+,NA,NA,NA,Nouveau
+BEN24,IST diagnostiqués et traités,A64,Depistage,No,No,NA,NA,F,yes,NA,NA,IST,NA,NA,NA,NA
+BEN24,IST diagnostiqués et traités,A64,Traitement,No,No,NA,NA,F,yes,NA,NA,IST+,NA,NA,NA,Nouveau
+BEN25,Césarienne,O75.82 + O82,Accouchement,No,No,NA,NA,F,yes,NA,NA,NA,Assiste,NA,NA,NA
+BEN26,Accouchement dystocique effectué chez une parturiente référée des Centres de Santé,O60-O77,Accouchement,Yes,Yes,NA,NA,F,yes,NA,NA,NA,Assiste,NA,NA,NA
+BEN27,Diagnostic et traitement des cas de paludisme simple chez les enfants,B54,Depistage,Yes,Yes,0,Y15,NA,NA,NA,NA,PaluSimp+,NA,NA,NA,NA
+BEN27,Diagnostic et traitement des cas de paludisme simple chez les enfants,B54,Traitement,Yes,Yes,0,Y15,NA,NA,NA,NA,Palu+,NA,NA,NA,Nouveau
+BEN28,Diagnostic et traitement des cas de paludisme simple chez les femmes enceintes,B54,Depistage,Yes,Yes,NA,NA,F,NA,NA,NA,PaluSimp+,NA,NA,NA,NA
+BEN28,Diagnostic et traitement des cas de paludisme simple chez les femmes enceintes,B54,Traitement,Yes,Yes,NA,NA,F,NA,NA,NA,Palu+,NA,NA,NA,Nouveau
+BEN29,Diagnostic et traitement des cas de paludisme grave chez les femmes enceintes,B54,Depistage,Yes,Yes,0,Y15,NA,NA,NA,NA,PaluGrave+,NA,NA,NA,NA
+BEN29,Diagnostic et traitement des cas de paludisme grave chez les femmes enceintes,B54,Traitement,Yes,Yes,0,Y15,NA,NA,NA,NA,PaluGrave+,NA,NA,NA,Nouveau
+BEN30,Diagnostic et traitement des cas de paludisme grave chez les enfants,B54,Depistage,Yes,Yes,NA,NA,F,NA,NA,NA,PaluGrave+,NA,NA,NA,NA
+BEN30,Diagnostic et traitement des cas de paludisme grave chez les enfants,B54,Traitement,Yes,Yes,NA,NA,F,NA,NA,NA,PaluGrave+,NA,NA,NA,Nouveau
+BEN31,Planification Familiale,Z30,Consultation,Yes,No,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+BEN32,"CPN 4 Standard (y compris VAT, SP et supplémentation en micronutriments) pour les Indigentes (prime additionnelle)",Z34.93,Consultation,Yes,Yes,NA,NA,F,yes,Indigents,NA,NA,NA,NA,NA,NA
+BEN33,Accouchement eutocique assiste femme indigente (prime additionnelle),O80,Consultation,No,Yes,NA,NA,F,yes,Indigents,NA,NA,NA,NA,NA,NA
+BEN34,Consultation Postnatale,,Consultation,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+BEN35,Femmes enceintes VAT completement vaccinees (VAT 2-5),,Distribution,,,NA,NA,F,yes,NA,NA,NA,NA,NA,NA,NA
+BEN36,Deuxieme prise de Sulfadoxine femme enceinte,,Traitement,,,NA,NA,F,yes,NA,NA,NA,NA,NA,NA,Ancien
+BEN37,Distribution des MII (femme enceinte),ZX3.1,Distribution,No,Yes,NA,NA,F,yes,NA,NA,NA,NA,NA,NA,NA
+BEN38,Sejour hospitalier (chirurgie),ZX1.3,Hospitalisation,Yes,No,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+BEN39,Sejour hospitalier (medecine),ZX1.3,Hospitalisation,Yes,No,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA

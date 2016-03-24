@@ -1,0 +1,266 @@
+---
+title: A Structured Tagging approach to interoperability of Health Indicators Management
+  Systems
+author: "Grégoire Lurton"
+date: "July 2015"
+output: html_document
+---
+
+# Introduction
+
+## Background
+
+We want to design a mapping between different reporting systems used in different settings in a same health system. Our use case for this project was the comparison between data collected in a standard HMIS system and data collected in a Results Based Financing system, for data validation purposes. Another use case could be a need to use multiple data sources for epidemiological surveillance, for better coverage of a country's population. We can also be willing to compare results from different health systems in neighboring countries.
+
+ie Unification of data collection is not an option, and may not even be desirable given the complexity, and the fact each data collection system is suited to a specific situation of healthcare. 
+
+The problem in this situation is the multiplicity of indicator definitions and terminologies used. A mapping between multiple sets of indicators has to offer flexibility, and should allow user to compare or link to indicators even if they are not identical, while holding into account these differences.
+
+The specificity of our project is the fact that we work on aggregated indicators. Most terminologies are designed to classify or record individual enconters data, and classify clinical situations (ICD, SNOMED).
+
+## Criteria of success for the project
+
+We would consider we have been successful in the project if we finish with a format of classification that :
+1. allows for coding of a variety of types of health output indicators
+2. allows a good differentiation of indicators
+3. allows a good matching of similar indicators
+
+
+# Vision of interoperability framework
+
+OpenHIE
+
+Not Taxonomy. Need multiple levels. Simple text mining does not capture differences in definitions.
+
+Benefits of this exercise outside of the interoperability domain
+
+Output is a mapping of indicators from different systems, guided by comparison of different tag dimensions. This comparison can be made in different ways, we here just present one.
+
+Relationships are stored in relationship table in master system. A same indicator can be found in multiple relationships, without transitivity between different relationships.
+
+This table is used as a reference to compare different values or populate one system from the other.
+
+We define a notion of distance between indicators. You may want to have, in further work, better statistical approach to this distance, and how it can be used to leverage data analysis for data from these systems.
+
+# Format definition
+
+As a method, we considered the feasability of a unified flat taxonomy that would encompass all existing indicators. This revealed illusory and, would provide limited mapping for predefined situtations. We thus switched to using a multi dimensionnal framework to define indicators, using post-coordination to precisely define indicators.
+
+The benefit of doing so is keeping flexbility in the definition.
+
+Quel arbitrage dans la classification ICD / subpopulation in indicateurs avec multiple : allow better adaptation to data produced in settings organized around morbidity (hospitals)
+
+
+
+There still are a few problems regarding how to distribute different categories.
+
+One of those is the fact that some categories can be services, but are then used as additional population definition for more refined indicators (eg *Patients treated for TB* and *Patients treated for TB who have been tested for HIV*).
+
+
+Illusration avec Scaled Venn Diagram
+
+
+## Tables of additional dimension definition needs
+
+
+## Next steps
+
+Finalization of the format, and redaction of a method / manual to help reproduce this. Example of codification of some standard indicators.
+
+# Matching 
+
+First loading the listings. The user should just input the entry files of the formatted indicators list (for now we will assume that the columns names are properly standardized), and names he wants to use to follow each of these data sources.
+
+```{r}
+setwd('c://Users/grlurton/Drive/Indicators_Taxonomy/')
+
+
+data_1 <- read.csv('rbf_benin_coded.csv' , stringsAsFactors = FALSE)
+data_2 <- read.csv('hmis_benin_coded.csv' , stringsAsFactors = FALSE)
+
+name_data_1 <- 'rbf'
+name_data_2 <- 'hmis'
+
+##formatting of string variables
+```
+
+
+
+Il y a plusieurs entrées dans le matching qui peuvent marcher. On peut prioriser en fonction de ce qui paraît important. Le matching se fait par convergence successive.
+
+For now, let's make a mapping in two stages :
+
+1. First matching on ICD10 and type of service
+2. Second level of matching will be different depending on the type of service considered
+3. The user is then given a return that he has to parse based on population characteristics
+
+
+This can change. A user may want to just match a first step on ICD10 and check which services are matchable at that point. Also we should be able to read ICD10 codes that are subsets of others.
+ 
+
+
+```{r}
+#Make a first level merge of data sources. For now, not much more than a glorified merge
+data_1$service[is.na(data_1$service)] <- "No Service"
+data_2$service[is.na(data_2$service)] <- ""
+
+merge_first_level <- function(data_1 , data_2 , dimensions){
+  merge(data_1 , data_2 , by = dimensions , suffixes = c('_1' , '_2'))
+}
+data_m <- merge_first_level(data_1 , data_2 , c('icd10','service'))
+
+table(data_m$service)
+
+data_dep <- subset(data_m , service == 'Depistage')
+```
+
+```{r}
+##### Set of functions used for computing the distance between indicators
+
+
+#Function to select variable in two data sets once it is passed :
+get_both_variables <- function(data , variable_name){
+  vars <- list(data[paste0(variable_name , '_1')] , data[paste0(variable_name , '_2')])
+  vars
+}
+
+#Function make NAs in empty strings (comparisons don't work when there are NAs)
+NAs_to_str <- function(variable){
+  variable[is.na(variable)]  <- ""
+  variable
+}
+
+#Function to get distance on a given discrete variable
+complement_distance <- function(variable_list , distance){
+  distance <- distance * (variable_list[[1]] != variable_list[[2]])
+  distance
+}
+
+#Wrapping function
+dist_compute <- function(data , variable_name , distance = 100){
+  var_list <- get_both_variables(data , variable_name)
+  var_list <- lapply(var_list , NAs_to_str)
+  distance_out <- complement_distance(var_list , distance)
+  distance_out
+}
+
+## Function to impute missing Age borns
+NAs_to_age <- function(variable , multiplier){
+  variable[is.na(variable)]  <- multiplier*12*365
+  variable
+}
+
+## Function to get Age in Days
+age_to_days <- function(age){
+  age <- as.character(unlist(age))
+  age_unit <- substr(age , 1 , 1 )
+  age_value <- substr(age , 2 , nchar(age) )
+  age_day <- as.numeric(age_value)
+  age_day[age_unit == 'Y'] <- as.numeric(age_value[age_unit == 'Y']) * 12 * 30
+  age_day[age_unit == 'M'] <- as.numeric(age_value[age_unit == 'M']) * 30
+  age_day[age_unit == 'J'] <- as.numeric(age_value[age_unit == 'J'])
+  age_day
+}
+
+#Function to get distance on a given continuous variable
+continuous_distance <- function(variable_list , normalization){
+  distance <- sqrt(abs(variable_list[[1]] - variable_list[[2]])) / normalization
+  distance
+}
+
+#Wrapping function
+continuous_dist_compute <- function(data , variable_name , normalization = 100 , multiplier){
+  var_list <- get_both_variables(data , variable_name)
+  var_list <- lapply(var_list , NAs_to_age , multiplier = multiplier) 
+  var_list <- lapply(var_list , age_to_days)
+  var_list <- lapply(var_list , NAs_to_age , multiplier = multiplier)  
+  distance_out <- continuous_distance(var_list , normalization)
+  distance_out
+}
+```
+
+With these we can now look at how distant indicators are related to each other. 
+
+```{r}
+## Function to get the list of dimensions to consider for each service type
+get_additional_dimensions <- function(data , service){
+  service <- tolower(service)
+  dims <- colnames(data)[grep(service , colnames(data))]
+  dims <- substr(dims, 1 , (nchar(dims) - 2))
+  dims
+}
+```
+
+```{r}
+## Function that takes one indicator in data base A and computes distance of indicators from 
+## data base B, with a unique service type associated
+
+## Not the most elegant for now. 
+make_dist_wrapper <- function(data , indicator){
+  print(indicator)
+  data_ind <- subset(data , indic_lib_1 == indicator)
+  add_dims <- get_additional_dimensions(data_ind , unique(data_ind$service))
+  data_ind$dist  <- 0 
+  if (length(add_dims) > 0){
+    for (i in 1:length(add_dims)){
+      data_ind$dist <- data_ind$dist + dist_compute(data_ind , add_dims[i] , 100)
+    }
+  }
+
+  data_ind$dist <- data_ind$dist + dist_compute(data_ind , 'sex' , 50)
+  data_ind$dist <- data_ind$dist + dist_compute(data_ind , 'enceinte' , 100)
+  data_ind$dist <- data_ind$dist + dist_compute(data_ind , 'autre' , 100)
+  data_ind$dist <- data_ind$dist + continuous_dist_compute(data_ind , 'age_min' , 
+                                        normalization = 10 , multiplier = 0)
+  data_ind$dist <- data_ind$dist + continuous_dist_compute(data_ind , 'age_max' , 
+                                        normalization = 10 , multiplier = 100)
+  
+  data_ind[order(data_ind$dist), c('indic_lib_2' , "indic_cat" , 'dist' )]
+}
+
+make_dist_wrapper(data_m , data_m$indic_lib_1[3])
+```
+
+
+```{r}
+
+merge_m <- merge(data_m , gold_standard , by.x = "indic_lib_1" , by.y = 'Indicateur.Libelle')
+results <- list()
+count <- c()
+
+for (indicateur in unique(data_m$indic_lib_1)){
+  print(indicateur)
+  print(unique(merge_m$Gold.Stand[merge_m$indic_lib_1 == indicateur]))
+  
+  out <- make_dist_wrapper(data_m , indicateur)
+  results[[indicateur]] <- out
+  
+  print(out)
+  diagnostic <- readline()
+  count <- c(count , diagnostic)
+}
+
+gold_standard <- read.csv('gold_standard.csv')
+
+data_m <- merge_first_level(data_1 , data_2 , c('icd10','service'))
+
+
+
+table(gold_standard$Gold.Stand[gold_standard$Indicateur.Libelle %in% data_m$indic_lib_1])
+table(gold_standard$Gold.Stand)
+
+```
+
+
+
+
+
+
+
+
+# User Interactions and output of final matching format
+
+
+A faire : definir un format de sortie pour les tables pour meilleure lisibilite
+
+Faire apparaitre les sources de variation.
