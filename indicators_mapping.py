@@ -2,8 +2,6 @@
 import json
 import pandas
 
-
-
 with open('data/indicators_lists.json') as data_file:
     data = json.load(data_file)
 
@@ -50,7 +48,7 @@ def compare_indicators(indicator1 , indicator2):
     dims_indicator2 = get_indicator_dimension(indicator2)
     for dim in dims_indicator1 :
         if dims_indicator1[dim] == None :
-            dist = measure_dimension_distance(indicator1 , indicator2 , dim , 10)
+            dist = measure_dimension_distance(indicator1 , indicator2 , dim , 100)
             distances[dim] = dist
         if dims_indicator1[dim] != None :
             for sub_dim in dims_indicator1[dim] :
@@ -58,7 +56,17 @@ def compare_indicators(indicator1 , indicator2):
                 distances[sub_dim] = dist
     return(distances)
 
-a = compare_indicators(ethiopia['ETH1'] , ethiopia['ETH3'])
+def match_indicator_in_dataset(indicator , data_set):
+    distances = {}
+    for indicator2 in data_set.keys() :
+        try :
+            dists = compare_indicators(indicator , data_set[indicator2])
+            distances[indicator2] = sum(dists.values())
+        except KeyError :
+            distances[indicator2] = 'Non Tagged'
+    return(distances)
 
 
-print(sum(a.values()))
+
+a = match_indicator_in_dataset(ethiopia['ETH1'] , ethiopia)
+print(a)
