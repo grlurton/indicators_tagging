@@ -78,13 +78,20 @@ for indic in ethiopia.keys() :
     pca_match = match_indicator_in_dataset(ethiopia[indic] , rca['pca'])
     pma_match = match_indicator_in_dataset(ethiopia[indic] , rca['pma'])
     full = pca_match.append(pma_match)
+    full = full.to_json( orient = 'records' )
     match_ethiopie_rca[indic] = {'lib':ethiopia[indic]['lib'] , 'matching':full}
+
 
 match_ethiopie_kivu = {}
 for indic in ethiopia.keys() :
     pca_match = match_indicator_in_dataset(ethiopia[indic] , kivu['pca'])
     pma_match = match_indicator_in_dataset(ethiopia[indic] , kivu['pma'])
     full = pca_match.append(pma_match)
+    full = full.to_json( orient = 'records' )
     match_ethiopie_kivu[indic] = {'lib':ethiopia[indic]['lib'] , 'matching':full}
 
-print(match_ethiopie_kivu)
+with open('outputs/ethiopie_rca_map.json', 'w') as f:
+    json.dump(match_ethiopie_rca, f)
+
+with open('outputs/ethiopie_kivu_map.json', 'w') as f:
+    json.dump(match_ethiopie_kivu, f)
