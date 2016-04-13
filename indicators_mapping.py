@@ -1,6 +1,6 @@
 ### Script to map indicators based on tagging in indicators_lists_json##
 import json
-import pandas
+import pandas as pd
 
 with open('data/indicators_lists.json') as data_file:
     data = json.load(data_file)
@@ -57,16 +57,23 @@ def compare_indicators(indicator1 , indicator2):
     return(distances)
 
 def match_indicator_in_dataset(indicator , data_set):
-    distances = {}
+    distances = []
+    indicators = []
     for indicator2 in data_set.keys() :
+        indicators.append(indicator2)
         try :
             dists = compare_indicators(indicator , data_set[indicator2])
-            distances[indicator2] = sum(dists.values())
+            out = sum(dists.values()) / len(dists)
+            distances.append(out)
         except KeyError :
-            distances[indicator2] = 'Non Tagged'
-    return(distances)
+            distances.append(None)
+    data_out = {'indicators' : indicators , 'distances' : distances }
+    out = pd.DataFrame(data_out)
+    return(out)
 
-
-
-a = match_indicator_in_dataset(ethiopia['ETH1'] , ethiopia)
-print(a)
+match_ethiopie_rca = {}
+for indic in ethiopia.keys() :
+    pca_match = match_indicator_in_dataset(ethiopia[indic] , rca['pca'])
+    pma_match = match_indicator_in_dataset(ethiopia[indic] , rca['pma'])
+    full = pca_match.append(pma_match)
+    match_ethiopie_rca[indic] = full
