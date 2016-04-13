@@ -15,10 +15,13 @@ def measure_dimension_distance( indicator1 , indicator2 , dimension , distance):
     """Measures disance in given dimension between two indicators
 
     """
-    dim1 = indicator1[dimension]
-    dim2 = indicator2[dimension]
-    distance_indics = (dim1 != dim2)*distance
-    return distance_indics
+    try :
+        dim1 = indicator1[dimension]
+        dim2 = indicator2[dimension]
+        distance_indics = (dim1 != dim2)*distance
+        return distance_indics
+    except KeyError :
+        return distance
 
 def get_indicator_dimension(indicator):
     """Gets the dimensions in a given indicator.
@@ -41,13 +44,21 @@ def get_indicator_dimension(indicator):
         keys[key] = sub_key
     return keys
 
+def compare_indicators(indicator1 , indicator2):
+    distances = {}
+    dims_indicator1 = get_indicator_dimension(indicator1)
+    dims_indicator2 = get_indicator_dimension(indicator2)
+    for dim in dims_indicator1 :
+        if dims_indicator1[dim] == None :
+            dist = measure_dimension_distance(indicator1 , indicator2 , dim , 10)
+            distances[dim] = dist
+        if dims_indicator1[dim] != None :
+            for sub_dim in dims_indicator1[dim] :
+                dist = measure_dimension_distance(indicator1[dim] , indicator2[dim] , sub_dim , 5)
+                distances[sub_dim] = dist
+    return(distances)
+
+a = compare_indicators(ethiopia['ETH1'] , ethiopia['ETH3'])
 
 
-measure_dimension_distance(ethiopia['ETH1'] , ethiopia['ETH3'] , 'icd10' , 10)
-
-
-
-
-
-
-get_indicator_dimension(ethiopia['ETH3'] )
+print(sum(a.values()))
