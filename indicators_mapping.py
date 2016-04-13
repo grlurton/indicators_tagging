@@ -59,15 +59,17 @@ def compare_indicators(indicator1 , indicator2):
 def match_indicator_in_dataset(indicator , data_set):
     distances = []
     indicators = []
+    lib = []
     for indicator2 in data_set.keys() :
         indicators.append(indicator2)
+        lib.append(data_set[indicator2]['lib'])
         try :
             dists = compare_indicators(indicator , data_set[indicator2])
             out = sum(dists.values()) / len(dists)
             distances.append(out)
         except KeyError :
             distances.append(None)
-    data_out = {'indicators' : indicators , 'distances' : distances }
+    data_out = {'indicators' : indicators , 'distances' : distances , 'lib':lib}
     out = pd.DataFrame(data_out)
     return(out)
 
@@ -76,4 +78,13 @@ for indic in ethiopia.keys() :
     pca_match = match_indicator_in_dataset(ethiopia[indic] , rca['pca'])
     pma_match = match_indicator_in_dataset(ethiopia[indic] , rca['pma'])
     full = pca_match.append(pma_match)
-    match_ethiopie_rca[indic] = full
+    match_ethiopie_rca[indic] = {'lib':ethiopia[indic]['lib'] , 'matching':full}
+
+match_ethiopie_kivu = {}
+for indic in ethiopia.keys() :
+    pca_match = match_indicator_in_dataset(ethiopia[indic] , kivu['pca'])
+    pma_match = match_indicator_in_dataset(ethiopia[indic] , kivu['pma'])
+    full = pca_match.append(pma_match)
+    match_ethiopie_kivu[indic] = {'lib':ethiopia[indic]['lib'] , 'matching':full}
+
+print(match_ethiopie_kivu)
