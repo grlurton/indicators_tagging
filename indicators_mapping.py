@@ -91,7 +91,7 @@ for indic in ethiopia.keys() :
     match_ethiopie_kivu[indic] = {'lib':ethiopia[indic]['lib'] , 'matching':full}
 
 with open('outputs/ethiopie_rca_map.json', 'w') as f:
-    json.dump(match_ethiopie_rca, f)
+    json.dump(match_ethiopie_rca, f , ensure_ascii=False)
 
 with open('outputs/ethiopie_kivu_map.json', 'w') as f:
-    json.dump(match_ethiopie_kivu, f)
+    json.dump(match_ethiopie_kivu, f , ensure_ascii=False)
