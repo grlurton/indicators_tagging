@@ -1,58 +1,57 @@
-ID,Label,ICD10,Service,Additional Definition Need,Population Mapping,age_min,age_max,gender,depistage_fait,depistage_resultat,Enceinte," Routine facility information systems as
-data source"
+ID,Label,ICD10,Service,Additional Definition Need,Population Mapping,age_min,age_max,gender,depistage_fait,depistage_resultat
 who1,Demand for family planning satisfied with modern methods,Z30,consultation,"No
-",Yes,Y15,Y49,Female,N/A,N/A,N/A,No
-who2,Contraceptive prevalence rate,Z30,consultation,,Yes,Y15,Y49,Female,N/A,N/A,N/A,Yes
-who3,Antenatal care coverage,Z32+Z33+Z34+Z35+Z36,consultation,,Yes,Y15,Y49,Female,N/A,N/A,yes,Yes
-who4,Births attended by skilled health personnel,O60-O77+O80+O75.82 + O82+ZX2.2,accouchement,personnal:health personnel trained in providing life-saving obstetric care,No,N/A,N/A,N/A,N/A,N/A,N/A,Yes
-who5,Postpartum care coverage,Z39,treatment,,women & babies,,,,N/A,N/A,N/A,Yes
-who6,Care-seeking for symptoms of pneumonia,J12+J13+J14+J15+J16+J17+J18,consultation,,Yes,M0,M60,N/A,N/A,N/A,N/A,No
-who7,Children with diarrhoea receiving oral rehydration solution (ORS),K58+K59.1+P78.3,consultation,drug:fluids made from ORS packets or pre-packaged ORS fluids,,,,,N/A,N/A,N/A,Yes
-who8,Vitamin A supplementation coverage,E50+L86,vaccination,,Yes,M6,M60,N/A,N/A,N/A,N/A,Yes
-who9,Immunization coverage rate by vaccine for each vaccine in the national schedule,Z23,vaccination,"vaccination_type: BCG; vaccination_type:polio;  vaccination_type:PCV;vaccination_type:rotavirus; vaccination_type:diphtheria, vaccination_type:tetanus, vaccination_type:DTP-HepBHib; vaccination_type:measles; vaccination_type:rubella; vaccination_type:HPV; vaccination_type:TT; vaccination_type:influenza",Yes,Y1,Y2,N/A,N/A,N/A,N/A,Yes
-who10,People living with HIV who have been diagnosed,B20,depistage,,No,N/A,N/A,N/A,N/A,HIV+,N/A,Yes
-who11,Prevention of mother-to-child transmission,B20,treatment,,pregnant,N/A,N/A,Female,N/A,N/A,yes,Yes
-who12,HIV care coverage,B20,treatment,care_def:WHO staging ;care_def:CD4 count ;care_def:viral load,No,N/A,N/A,N/A,N/A,N/A,N/A,No
-who13,Antiretroviral therapy (ART) coverage,B20,treatment,,No,N/A,N/A,N/A,N/A,N/A,N/A,Yes
-who14,HIV viral load suppression,B20,outcome,,No,N/A,N/A,N/A,N/A,N/A,N/A,Yes
-who15,TB preventive therapy for HIV-positive people newly enrolled in HIV care,A15+A17+A18+A19,treatment,,No,N/A,N/A,N/A,N/A,N/A,N/A,Yes
-who16,HIV test results for registered new and relapse TB patients,B20,treatment,source:hiv recorded in tb register,TB Patients,N/A,N/A,N/A,yes,N/A,N/A,Yes
-who17,HIV-positive new and relapse TB patients on ART during TB treatment,B20,treatment,,TB Patients,N/A,N/A,N/A,yes,HIV+,N/A,Yes
-who18,TB patients with results for drug susceptibility testing,A15 + A17 + A18 + A19,treatment,tb_resistance:isoniazid ; tb_resistance:rifampicin,TB Patients,N/A,N/A,N/A,yes,HIV+,N/A,Yes
-who19,TB case detection rate,A15 + A17 + A18 + A19,depistage, tb_case:new ; tb_case:relapse,No,N/A,N/A,N/A,yes,N/A,N/A,Yes
-who20,Second-line treatment coverage among multidrug-resistant tuberculosis (MDR-TB) cases,A15 + A17 + A18 + A19,treatment,tb_drug:MDR-TB treatment regimen ,TB Patients,N/A,N/A,N/A,N/A,N/A,N/A,Yes
+",,Y15,Y49,Female,,
+who2,Contraceptive prevalence rate,Z30,consultation,,,Y15,Y49,Female,,
+who3,Antenatal care coverage,Z32+Z33+Z34+Z35+Z36,consultation,,pregnant,Y15,Y49,Female,,
+who4,Births attended by skilled health personnel,O60-O77+O80+O75.82 + O82+ZX2.2,accouchement,personnal:health personnel trained in providing life-saving obstetric care,,,,,,
+who5,Postpartum care coverage,Z39,treatment,,women & babies,,,,,
+who6,Care-seeking for symptoms of pneumonia,J12+J13+J14+J15+J16+J17+J18,consultation,,,M0,M60,,,
+who7,Children with diarrhoea receiving oral rehydration solution (ORS),K58+K59.1+P78.3,consultation,drug:fluids made from ORS packets or pre-packaged ORS fluids,,,,,,
+who8,Vitamin A supplementation coverage,E50+L86,vaccination,,,M6,M60,,,
+who9,Immunization coverage rate by vaccine for each vaccine in the national schedule,Z23,vaccination,"vaccination_type: BCG; vaccination_type:polio;  vaccination_type:PCV;vaccination_type:rotavirus; vaccination_type:diphtheria, vaccination_type:tetanus, vaccination_type:DTP-HepBHib; vaccination_type:measles; vaccination_type:rubella; vaccination_type:HPV; vaccination_type:TT; vaccination_type:influenza",,Y1,Y2,,,
+who10,People living with HIV who have been diagnosed,B20,depistage,,,,,,,HIV+
+who11,Prevention of mother-to-child transmission,B20,treatment,,pregnant,,,Female,,
+who12,HIV care coverage,B20,treatment,care_def:WHO staging ;care_def:CD4 count ;care_def:viral load,,,,,,
+who13,Antiretroviral therapy (ART) coverage,B20,treatment,,,,,,,
+who14,HIV viral load suppression,B20,outcome,,,,,,,
+who15,TB preventive therapy for HIV-positive people newly enrolled in HIV care,A15+A17+A18+A19,treatment,,New HIV Patients,,,,,
+who16,HIV test results for registered new and relapse TB patients,B20,treatment,source:hiv recorded in tb register,TB Patients,,,,yes,
+who17,HIV-positive new and relapse TB patients on ART during TB treatment,B20,treatment,,TB Patients,,,,yes,HIV+
+who18,TB patients with results for drug susceptibility testing,A15 + A17 + A18 + A19,depistage,tb_resistance:isoniazid ; tb_resistance:rifampicin,TB Patients,,,,yes,HIV+
+who19,TB case detection rate,A15 + A17 + A18 + A19,depistage, tb_case:new ; tb_case:relapse,,,,,yes,
+who20,Second-line treatment coverage among multidrug-resistant tuberculosis (MDR-TB) cases,A15 + A17 + A18 + A19,treatment,tb_drug:MDR-TB treatment regimen ,TB Patients,,,,,
 who21,Intermittent preventive therapy for malaria during pregnancy (IPTp),B54,treatment,"receiving three or more doses of recommended treatment
-",Pregnant,Y15,Y49,Female,N/A,N/A,N/A,Yes
-who22,Use of insecticide treated nets (ITNs),ZX3.1,Menage,,No,N/A,N/A,N/A,N/A,N/A,N/A,No
+",Pregnant,Y15,Y49,Female,,
+who22,Use of insecticide treated nets (ITNs),ZX3.1,Menage,,,,,,,
 who23,Treatment of confirmed malaria cases,B54,treatment,"  first line antimalarial treatment
-",No,N/A,N/A,N/A,N/A,Palu+,N/A,Yes
+",,,,,,Palu+
 who24,Indoor residual spraying (IRS) coverage,ZX3,Menage," persons protected by IRS
-",No,N/A,N/A,N/A,N/A,N/A,N/A,Yes
+",,,,,,
 who25,Coverage of preventive chemotherapy for selected neglected tropical diseases,B65-B83,treatment,"schistosomiasis, soil-transmitted helminthiases, lymphatic filariasis , onchocerciasis
-",No,N/A,N/A,N/A,N/A,N/A,N/A,No
-who26,Cervical cancer screening,Z12.4,treatment,hpv_screening:VIA ; hpv_screening:pap smear ; hpv_screening:HPV test,No,Y30,Y49,Female,N/A,N/A,N/A,Yes
-who27,Coverage of services for severe mental health disorders,F00-F99,treatment,,No,N/A,N/A,N/A,N/A,N/A,N/A,Yes
-who28,New cases of vaccine-preventable diseases,A33+A34+A35+A36+A37+A83.0+A95+B05+B06+B16+B26+J12-J18+P35.0+R19.7,depistage,,No,N/A,N/A,N/A,N/A,N/A,N/A,Yes
-who29,New cases of IHR-notifiable diseases and other notifiable diseases,Z20-Z29,depistage,,No,N/A,N/A,N/A,N/A,N/A,N/A,Yes
-who30, Hepatitis B surface antigen prevalence,B16,depistage,,No,N/A,N/A,N/A,N/A,HBsAg +,N/A,Yes
-who31,Sexually transmitted infections (STIs) incidence rate,A50-A64,depistage,,No,N/A,N/A,N/A,YES,N/A,N/A,Yes
-who32,TB incidence rate,A15 + A17 + A18 + A19,treatment, tb_case:new ; tb_case:relapse,No,N/A,N/A,N/A,YES,TB+,N/A,Yes
-who33,TB notification rate,A15 + A17 + A18 + A19,depistage, tb_case:new ; tb_case:relapse,No,N/A,N/A,N/A,YES,TB+,N/A,Yes
-who34,TB prevalence rate,A15 + A17 + A18 + A19,treatment, tb_case:new ; tb_case:relapse,No,N/A,N/A,N/A,YES,TB+,N/A,Yes
-who35,Malaria parasite prevalence among children aged 6-59 months,B54,depistage,,Yes,M6,M60,N/A,YES,PALU+,N/A,Yes
-who36,Malaria incidence rate,B54,depistage,malaria_diagnose:microscopy ; malaria_diagnose:rapid_diagnostic,population at risk,N/A,N/A,N/A,YES,PALU+,N/A,Yes
+",,,,,,
+who26,Cervical cancer screening,Z12.4,treatment,hpv_screening:VIA ; hpv_screening:pap smear ; hpv_screening:HPV test,,Y30,Y49,Female,,
+who27,Coverage of services for severe mental health disorders,F00-F99,treatment,,,,,,,
+who28,New cases of vaccine-preventable diseases,A33+A34+A35+A36+A37+A83.0+A95+B05+B06+B16+B26+J12-J18+P35.0+R19.7,depistage,,,,,,,
+who29,New cases of IHR-notifiable diseases and other notifiable diseases,Z20-Z29,depistage,,,,,,,
+who30, Hepatitis B surface antigen prevalence,B16,depistage,,,,,,,HBsAg +
+who31,Sexually transmitted infections (STIs) incidence rate,A50-A64,depistage,,,,,,YES,
+who32,TB incidence rate,A15 + A17 + A18 + A19,treatment, tb_case:new ; tb_case:relapse,,,,,YES,TB+
+who33,TB notification rate,A15 + A17 + A18 + A19,depistage, tb_case:new ; tb_case:relapse,,,,,YES,TB+
+who34,TB prevalence rate,A15 + A17 + A18 + A19,treatment, tb_case:new ; tb_case:relapse,,,,,YES,TB+
+who35,Malaria parasite prevalence among children aged 6-59 months,B54,depistage,,,M6,M60,,YES,PALU+
+who36,Malaria incidence rate,B54,depistage,malaria_diagnose:microscopy ; malaria_diagnose:rapid_diagnostic,population at risk,,,,YES,PALU+
 who37,Incidence of low birth weight among newborns,P07,depistage,"live-born neonates with weight less than 2500 g at birth.
-",newborn,,,N/A,N/A,N/A,N/A,Yes
-who38,Perioperative mortality rate,Y60-Y69,outcome,deaths among patients having one or more procedures in an operating theatre during the relevant admission,operated patients,,,N/A,N/A,N/A,N/A,Yes
-who39,Obstetric and gynaecological admissions owing to abortion,O00-O08,treatment,Admissions for abortion-related complications,pregnant women,,,N/A,N/A,N/A,yes,Yes
-who40,Institutional maternal mortality ratio,095-097,outcome,,deliveries in institutions,,,N/A,N/A,N/A,yes,Yes
-who41,Maternal death reviews,095-097,organisation,,maternal deaths in facilities,,,N/A,N/A,N/A,yes,Yes
-who42,ART retention rate,B20,outcome," people on ART at 12, 24 and 60 months",people on ART,N/A,N/A,N/A,yes,HIV+,N/A,Yes
-who43,TB treatment success rate,A15 + A17 + A18 + A19,outcome,TB cases successfully treated (cured plus treatment completed),TB Patient,N/A,N/A,N/A,yes,TB+,N/A,Yes
-who44,Service-specific availability and readiness,ZX1,services,facilities that offer and meet tracer criteria for specific services,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Yes
-who45,Service utilization,ZX1,consultation,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Yes
-who46,Health service access,ZX1,organisation, population living within 5 km of a health facility ,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Yes
-who47,Hospital bed density,ZX1,organisation,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Yes
-who48,Availability of essential medicines and commodities,ZX1,organisation,facilities with essential medicines in stock,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Yes
-who49,Health worker density and distribution,ZX1,organisation, health workers by cadre,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Yes
-who50,Completeness of reporting by facilities,ZX1,organisation,,Health Facilities,N/A,N/A,N/A,N/A,N/A,N/A,Yes
+",newborn,,,,,
+who38,Perioperative mortality rate,Y60-Y69,outcome,deaths among patients having one or more procedures in an operating theatre during the relevant admission,operated patients,,,,,
+who39,Obstetric and gynaecological admissions owing to abortion,O00-O08,treatment,Admissions for abortion-related complications,pregnant,,,Female,,
+who40,Institutional maternal mortality ratio,095-097,outcome,delivery in institution,pregnant,,,Female,,
+who41,Maternal death reviews,095-097,organisation,,pregnant,,,Female,,
+who42,ART retention rate,B20,outcome," people on ART at 12, 24 and 60 months",people on ART,,,,yes,HIV+
+who43,TB treatment success rate,A15 + A17 + A18 + A19,outcome,TB cases successfully treated (cured plus treatment completed),TB Patient,,,,yes,TB+
+who44,Service-specific availability and readiness,ZX1,services,facilities that offer and meet tracer criteria for specific services,,,,,,
+who45,Service utilization,ZX1,consultation,,,,,,,
+who46,Health service access,ZX1,organisation, population living within 5 km of a health facility ,,,,,,
+who47,Hospital bed density,ZX1,organisation,,,,,,,
+who48,Availability of essential medicines and commodities,ZX1,organisation,facilities with essential medicines in stock,,,,,,
+who49,Health worker density and distribution,ZX1,organisation, health workers by cadre,,,,,,
+who50,Completeness of reporting by facilities,ZX1,organisation,,Health Facilities,,,,,
