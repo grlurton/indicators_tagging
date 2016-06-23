@@ -14,10 +14,12 @@ for ID in data.ID.unique() :
                                 "gender":line.gender.to_string(index = False) } }
     out[ID] = indic
 
+print(out)
+
 out = pd.DataFrame(out)
 out = out.transpose().to_json( orient = 'records' )
 
-with open('outputs/who_called.json', 'w') as f:
+with open('outputs/who_indicators.json', 'w') as f:
     json.dump(out, f , ensure_ascii=False)
 
 print(out)
